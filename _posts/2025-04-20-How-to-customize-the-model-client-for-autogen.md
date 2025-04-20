@@ -24,7 +24,7 @@ class CustomModelClient(ModelClient):
 
     def create(self, params):
         """handle the API request and return the response that autogen expects"""
-        logger.info(f"CustomModelClient initiate request: {params}")
+        print(f"CustomModelClient initiate request: {params}")
         
         # initialize the counters and the result container
         input_tokens, output_tokens = 0, 0
@@ -70,7 +70,7 @@ class CustomModelClient(ModelClient):
 
                 
         except Exception as e:
-            logger.error(f"stream request error: {e}")
+            print(f"stream request error: {e}")
             full_message = ChatCompletionMessage(
                 role="assistant",
                 content=str(e)
